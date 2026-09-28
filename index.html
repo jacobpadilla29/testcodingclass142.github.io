@@ -1,1 +1,355 @@
 424
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jacob Padilla | Personal Portfolio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b0f19;
+      color: #f5f7fa;
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(11, 15, 25, 0.9);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #4ade80;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav a {
+      color: #d1d5db;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #4ade80;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px 80px;
+      background:
+        radial-gradient(circle at top right, rgba(74,222,128,0.15), transparent 35%),
+        radial-gradient(circle at bottom left, rgba(59,130,246,0.12), transparent 35%);
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #4ade80;
+    }
+
+    .hero p {
+      color: #aab2c0;
+      font-size: 1.2rem;
+      max-width: 650px;
+      margin: 0 auto 35px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 28px;
+      background: #4ade80;
+      color: #07100b;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(74,222,128,0.25);
+    }
+
+    /* General sections */
+    section {
+      padding: 100px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #8f98a8;
+    }
+
+    /* About */
+    .about {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .about p {
+      color: #b4bcc9;
+      font-size: 1.1rem;
+    }
+
+    /* Interests */
+    .interests {
+      background: #0f1420;
+    }
+
+    .cards {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: #151b29;
+      padding: 35px 25px;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 15px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #4ade80;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    }
+
+    .icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #929baa;
+    }
+
+    /* Goals */
+    .goals {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .goals-box {
+      background: linear-gradient(135deg, #151b29, #101622);
+      border: 1px solid rgba(74,222,128,0.2);
+      padding: 45px;
+      border-radius: 18px;
+    }
+
+    .goals-box p {
+      color: #b5bdc9;
+      font-size: 1.1rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 35px 20px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: #737d8d;
+    }
+
+    footer span {
+      color: #4ade80;
+    }
+
+    /* Responsive */
+    @media (max-width: 750px) {
+      nav {
+        padding: 18px 5%;
+      }
+
+      nav ul {
+        gap: 15px;
+      }
+
+      nav a {
+        font-size: 0.85rem;
+      }
+
+      section {
+        padding: 75px 5%;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">JP.</div>
+
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#interests">Interests</a></li>
+      <li><a href="#goals">Goals</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Hi, I'm <span>Jacob Padilla.</span></h1>
+
+      <p>
+        Welcome to my personal space. I'm passionate about staying active,
+        spending time with my dogs, and enjoying the world of video games.
+      </p>
+
+      <a href="#about" class="button">Get to Know Me</a>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about">
+    <div class="section-title">
+      <h2>About Me</h2>
+      <p>A little bit about who I am</p>
+    </div>
+
+    <div class="about">
+      <p>
+        I'm Jacob Padilla. I enjoy keeping an active lifestyle and making time
+        for the things I love. Whether I'm working out at the gym, hanging out
+        with my dogs, or relaxing with a good video game, I believe in
+        maintaining a balance between fitness, fun, and personal time.
+      </p>
+    </div>
+  </section>
+
+  <!-- Interests -->
+  <section class="interests" id="interests">
+    <div class="section-title">
+      <h2>My Interests</h2>
+      <p>The things I enjoy doing in my free time</p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="icon">🏋️</div>
+        <h3>Fitness</h3>
+        <p>
+          I enjoy going to the gym daily and staying committed
+          to an active and healthy lifestyle.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🐶</div>
+        <h3>My Dogs</h3>
+        <p>
+          Spending time with my dogs is one of my favorite ways
+          to relax and enjoy my day.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🎮</div>
+        <h3>Gaming</h3>
+        <p>
+          I enjoy playing video games and taking some time to
+          unwind and have fun.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Goals -->
+  <section id="goals">
+    <div class="section-title">
+      <h2>My Mindset</h2>
+      <p>Stay active. Have fun. Keep growing.</p>
+    </div>
+
+    <div class="goals">
+      <div class="goals-box">
+        <p>
+          I believe that consistency and balance are important.
+          I want to continue improving myself, staying active,
+          enjoying time with the people and animals I care about,
+          and making time for the hobbies that make life enjoyable.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 <span>Jacob Padilla</span>. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
